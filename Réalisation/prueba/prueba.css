@@ -1,0 +1,11 @@
+
+.tarjeta{
+    border: 5px solid black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: fit-content;
+}
+.tarjeta img{
+    width: 130px;
+}
