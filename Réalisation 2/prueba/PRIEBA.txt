@@ -1,0 +1,15 @@
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(200px,auto));gap:14px;
+}
+<input id="search" class="stretch" type="text" placeholder="Rechercher par nom..." autocomplete="off">
+
+data.forEach(aray=>{
+
+
+<article class="card">
+          <div class="imgwrap"><img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png" alt="Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops"></div>
+          <div class="title">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</div>
+          <div class="cat">Men's Clothing</div>
+          <div class="price">€109.95</div>
+        </article>

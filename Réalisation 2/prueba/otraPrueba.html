@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Catálogo — Estilo Avalonia</title>
+  <style>
+    /* Paleta y sensación Avalonia: neones, metales y vidrio "hecho a mano" */
+    :root{
+      --bg-900:#031026; /* oscuro profundo */
+      --bg-800:#07162a;
+      --panel:#081220;
+      --muted:#9fb2c8;
+      --accent-1:#3ee7ff; /* cyan brillante */
+      --accent-2:#8b5cf6; /* morado neón */
+      --glass: rgba(255,255,255,0.03);
+      --edge-glow: 0 6px 30px rgba(62,231,255,0.06), 0 2px 8px rgba(139,92,246,0.04);
+      --card-border: rgba(126,136,155,0.06);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      min-height:100vh;
+      color:#e6f2ff;
+      background:
+        radial-gradient(1200px 400px at 10% 10%, rgba(62,231,255,0.03), transparent 10%),
+        radial-gradient(800px 300px at 95% 80%, rgba(139,92,246,0.03), transparent 10%),
+        linear-gradient(180deg,var(--bg-800), var(--bg-900));
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .wrap{max-width:1100px;margin:36px auto;padding:22px}
+
+    header{display:flex;gap:16px;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:14px;align-items:center}
+
+    /* Logo: placa metálica con brillo neón */
+    .logo{
+      width:56px;height:56px;border-radius:12px;
+      background:linear-gradient(135deg, rgb(153, 0, 255), rgb(255, 0, 0));
+      box-shadow: var(--edge-glow);
+      border:1px solid rgba(255,255,255,0.04);
+      display:flex;align-items:center;justify-content:center;font-weight:700;color:yellow;
+      position:relative;overflow:hidden;
+    }
+    .logo::after{
+      content:'';position:absolute;inset:0;background:linear-gradient(90deg, transparent, rgba(62,231,255,0.06), transparent);transform:skewX(-20deg);opacity:0.6
+    }
+
+    h1{font-size:20px;margin:0;letter-spacing:0.2px}
+    p.lead{margin:0;color:var(--muted);font-size:13px}
+
+    .controls{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}
+
+    /* Inputs con look "cristal tecnológico" */
+    .controls input[type=text], .controls select{
+      background:linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.01));
+      border:1px solid rgba(62,231,255,0.06);
+      padding:10px 12px;border-radius:10px;color:inherit;min-width:160px;
+      box-shadow: 0 2px 8px rgba(2,6,23,0.6) inset;
+      backdrop-filter: blur(6px);
+    }
+    .controls input[type=text]:focus, .controls select:focus{outline:none;border-color:var(--accent-1);box-shadow:0 8px 30px rgba(62,231,255,0.08)}
+
+    .controls .stretch{flex:1;min-width:220px}
+
+    .stats{color:var(--muted);font-size:13px;margin-bottom:8px}
+
+    /* grid */
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+
+    /* Tarjetas con borde luminoso y efecto "panel" */
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;padding:12px;border:1px solid var(--card-border);display:flex;flex-direction:column;gap:8px;
+      box-shadow: var(--edge-glow);
+      position:relative;overflow:hidden;
+    }
+    .card::before{
+      content:'';position:absolute;left:-40%;top:-40%;width:160%;height:160%;background:radial-gradient(circle at 30% 30%, rgba(62,231,255,0.03), transparent 6%, rgba(139,92,246,0.02) 30%, transparent 40%);
+      transform:rotate(12deg);pointer-events:none
+    }
+
+    .imgwrap{height:140px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(10,20,30,0.55), rgba(0,0,0,0.25));border-radius:10px;border:1px solid rgba(62,231,255,0.03);position:relative}
+    .imgwrap img{max-height:120px;max-width:100%;object-fit:contain;filter:drop-shadow(0 6px 18px rgba(0,0,0,0.6))}
+
+    .title{font-size:14px;font-weight:700;color:#eaf6ff}
+    .cat{font-size:12px;color:var(--muted);display:flex;gap:8px;align-items:center}
+    .cat::before{content:'⚙';opacity:0.14;margin-right:6px}
+    .price{margin-top:auto;font-weight:800;color:var(--accent-1);letter-spacing:0.2px}
+
+    .empty{padding:28px;text-align:center;color:var(--muted);background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+
+    footer{margin-top:20px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* pequeño efecto de circuito en el fondo usando pseudo-elemento global */
+    .wrap{position:relative}
+    .wrap::after{
+      content:'';position:absolute;inset:0;pointer-events:none;opacity:0.06;background-image:
+        radial-gradient(circle at 20% 10%, rgba(62,231,255,0.06), transparent 3%),
+        linear-gradient(90deg, rgba(62,231,255,0.02) 0, transparent 10%);
+      mix-blend-mode:overlay
+    }
+
+    @media (max-width:600px){header{flex-direction:column;align-items:flex-start}.controls{gap:8px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">A→Z</div>
+        <div>
+          <h1>A→Zerty Store.lite</h1>
+          <p class="lead">Lo bueno es saber esperar</p>
+        </div>
+      </div>
+      <div style="text-align:right;color:var(--muted)">
+      </div>
+    </header>
+
+    <div class="controls">
+      <input id="search" class="stretch" type="text" placeholder="Rechercher par nom..." autocomplete="off">
+      <select id="category">
+        <option value="all">Todas las categorías</option>
+      </select>
+      <select id="sort">
+        <option value="default">Orden: Predeterminado</option>
+        <option value="price-asc">Precio ↑</option>
+        <option value="price-desc">Precio ↓</option>
+        <option value="title-asc">Nombre A→Z</option>
+      </select>
+    </div>
+
+    <div class="stats"><span id="count"></span></div>
+
+    <main>
+      <div id="grid" class="grid"></div>
+      <div id="empty" class="empty" style="display:none">No se encontraron productos.</div>
+    </main>
+
+    <footer>Datos obtenidos desde <a href="https://fakestoreapi.com" target="_blank" style="color:var(--accent-1)">FakeStoreAPI</a>. Guarda este archivo como <code>index.html</code> y ábrelo en tu navegador.</footer>
+  </div>
+
+  <script>
+    // URL de la API pública de ejemplo
+    const API = 'https://fakestoreapi.com/products';
+
+    // Estado local
+    let PRODUCTS = [];
+    let filtered = [];
+
+    // Elementos
+    const grid = document.getElementById('grid');
+    const empty = document.getElementById('empty');
+    const search = document.getElementById('search');
+    const category = document.getElementById('category');
+    const sort = document.getElementById('sort');
+    const count = document.getElementById('count');
+    const updated = document.getElementById('updated');
+
+    // Fetch inicial
+    fetch(API)
+      .then(r => r.json())
+      .then(data => {
+        PRODUCTS = data;
+        populateCategories(PRODUCTS);
+        applyFilters();
+      })
+      .catch(err => {
+        grid.innerHTML = '<div class="empty">No se pudo obtener la lista. Revisa la consola.</div>';
+        console.error(err);
+      });
+
+    // Poblamos select de categorías (dinámico)
+    function populateCategories(items){
+      const cats = Array.from(new Set(items.map(i=>i.category))).sort();
+      cats.forEach(c=>{
+        const opt = document.createElement('option'); opt.value = c; opt.textContent = capitalize(c);
+        category.appendChild(opt);
+      });
+    }
+
+    // Render
+    function render(items){
+      grid.innerHTML = '';
+      if(!items.length){ empty.style.display='block'; count.textContent = '0 productos'; return }
+      empty.style.display='none';
+      count.textContent = `${items.length} producto${items.length>1?'s':''}`;
+
+      items.forEach(p=>{
+        const card = document.createElement('article'); card.className='card';
+        card.innerHTML = `
+          <div class="imgwrap"><img src="${p.image}" alt="${escapeHtml(p.title)}"></div>
+          <div class="title">${escapeHtml(p.title)}</div>
+          <div class="cat">${capitalize(p.category)}</div>
+          <div class="price">€${Number(p.price).toFixed(2)}</div>
+        `;
+        grid.appendChild(card);
+      })
+    }
+
+    // Filtrado + búsqueda + orden
+    function applyFilters(){
+      const q = search.value.trim().toLowerCase();
+      const cat = category.value;
+      const s = sort.value;
+
+      filtered = PRODUCTS.filter(p=>{
+        const matchQ = p.title.toLowerCase().includes(q) || p.description.toLowerCase().includes(q);
+        const matchCat = (cat === 'all') ? true : p.category === cat;
+        return matchQ && matchCat;
+      });
+
+      if(s === 'price-asc') filtered.sort((a,b)=>a.price-b.price);
+      else if(s === 'price-desc') filtered.sort((a,b)=>b.price-a.price);
+      else if(s === 'title-asc') filtered.sort((a,b)=>a.title.localeCompare(b.title));
+
+      render(filtered);
+    }
+
+    // Small utilities
+    function capitalize(str){ return String(str).replace(/(^|\s)\S/g, t=>t.toUpperCase()) }
+    function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' })[c]) }
+
+    // Debounce helper for search input
+    function debounce(fn, ms=250){ let t; return (...args)=>{ clearTimeout(t); t=setTimeout(()=>fn(...args), ms) } }
+
+    // Event listeners
+    search.addEventListener('input', debounce(applyFilters, 220));
+    category.addEventListener('change', applyFilters);
+    sort.addEventListener('change', applyFilters);
+
+    // Accessibility: keyboard focus on search at load
+    window.addEventListener('load', ()=>search.focus());
+  </script>
+</body>
+</html>
