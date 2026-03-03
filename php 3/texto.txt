@@ -1,0 +1,204 @@
+            <img src="medias/paisaje.avif" alt="meme">
+.meme-image {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+}
+
+.meme-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+<?php
+
+require 'database.php';
+if($_SERVER['REQUEST_METHOD']=="POST") {
+    if(isset($_POST['titulo'] , $_POST['mensaje'])) {
+    $titre=trim($_POST['titulo']);
+    $descripcion = trim($_POST['mensaje']);
+    }
+if (isset($_FILES['foto'])) {
+
+    $nombre = $_FILES['foto']['name'];
+    $tmp = $_FILES['foto']['tmp_name'];
+
+    $carpeta = "imagenes/";
+    $ruta = $carpeta . uniqid() . "_" . $nombre;
+
+    // crear carpeta si no existe
+    if (!is_dir($carpeta)) {
+        mkdir($carpeta, 0777, true);
+    }
+
+    if (move_uploaded_file($tmp, $ruta)) {
+        try{
+        $sqlFoto = "INSERT INTO article (titre, descripcion, photo_path) VALUES (:titre, :descripcion, :photo_path)";
+
+        $stmt->bindParam(':titre', $titre);
+        $stmt->bindParam(':descripcion', $descripcion);
+    
+    $stmt->execute();
+
+        echo "✅ Imagen subida correctamente";
+        }catch(PDOException $e){
+    echo "Erreur type: " . $e->getMessage();
+}
+    } else {
+        echo "❌ Error al subir imagen";
+    }
+}
+}
+
+<?php
+function tiempoTranscurrido($fecha) {
+    $tiempo = time() - strtotime($fecha);
+
+    if ($tiempo < 60) {
+        return "hace unos segundos";
+    } elseif ($tiempo < 3600) {
+        return "hace " . floor($tiempo / 60) . " min";
+    } elseif ($tiempo < 86400) {
+        return "hace " . floor($tiempo / 3600) . " horas";
+    } elseif ($tiempo < 172800) {
+        return "ayer";
+    } else {
+        return "hace " . floor($tiempo / 86400) . " días";
+    }
+}
+?>
+
+
+
+<?php
+
+require 'database.php';
+
+try{
+$sql= 'SELECT * FROM utilisateur';
+$strt= $pdo->query($sql);
+$utilisateur= $strt->fetchAll(PDO::FETCH_ASSOC);
+
+
+
+}catch(PDOException $e){
+    echo "Erreur type: " . $e->getMessage();
+}
+?>
+<?php
+session_start();
+if(!isset($_SESSION['utilisateur'])){
+    header('Location: login.php');
+    exit;
+}
+
+try{
+$stmt=$pdo->prepare("SELECT * FROM Utilisateur WHERE nom = :nom");
+    $stmt->bindParam(':nom', $nom);
+    $nom = $_SESSION['utilisateur'];
+$stmt->execute();
+    $user=$stmt->fetch(PDO::FETCH_ASSOC);
+    return $user['id'] 
+}catch (PDOException $e) {
+    file_put_contents('erreurs.log', $e->getMessage(), FILE_APPEND);
+    echo "Erreur d'information fetch";
+}
+?>
+
+
+<?php
+session_start();
+require 'database.php';
+
+if (!isset($_SESSION['utilisateur'])) {
+    header('Location: login.php');
+    exit;
+}
+?>
+<?php
+try {
+
+    $stmt = $pdo->prepare("SELECT email FROM Utilisateur WHERE nom = :nom");
+
+    $stmt->execute([
+        ':nom' => $_SESSION['utilisateur']
+    ]);
+
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$user) {
+        die("Usuario no encontrado");
+    }
+
+    $_SESSION['email'] = $user['email'];
+
+} catch (PDOException $e) {
+    die("Erreur d'information fetch");
+}
+?>
+
+                    'image' => 'medias/Game Show.png',
+                    'user' => 'Pikichtaine',
+                    'time' => '3j',
+                    'text' => 'Bienvenue sur le "Game Show"!',
+                    'top_comment_user' => 'Walid',
+                    'top_comment' => 'This is gonna be awesome!'
+
+SELECT 
+    u.nom,
+    a.photo_path,
+    a.date_pub,
+    a.titre,
+    a.descripcion,
+    c.auteur,
+    c.contenu
+FROM utilisateur u
+INNER JOIN article a ON u.id = a.id_utilisateur
+LEFT JOIN commentaire c ON a.id = c.id_article;
+
+
+
+.card {
+    background: #E7E2DE;
+    color: black;
+    width: 420px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+
+
+<?php
+
+require 'database.php';
+
+try{
+$sql= 'SELECT 
+    u.nom,
+    a.photo_path,
+    a.date_pub,
+    a.titre,
+    a.descripcion,
+    c.auteur,
+    c.contenu
+FROM utilisateur u
+INNER JOIN article a ON u.id = a.id_utilisateur
+LEFT JOIN commentaire c ON a.id = c.id_article;';
+$stlt= $pdo->query($sql);
+$lista= $strt->fetchAll(PDO::FETCH_ASSOC);
+
+}catch(PDOException $e){
+    echo "Erreur type: " . $e->getMessage();
+}
+?>
+
+
+
+require 'queryAccueil.php';
+require 'tiempo.php'; 
+
+            foreach ($cards as $card) : ?>
+         
+            <?php endforeach; ?>

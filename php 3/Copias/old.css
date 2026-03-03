@@ -1,0 +1,213 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at top, #0a1f44, #020b1a);
+            color: white;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(26, 115, 232, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+/* HEADER */
+.top-bar {
+    height: 60px;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+        .logo {
+    width: 68px;      
+    height: auto;     
+}
+.icons{
+    display: flex;
+    gap: 66px;
+}
+a {
+    text-decoration: none;
+}
+a img {
+    width: 30px;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Meme card */
+.card {
+    background: #E7E2DE;
+    color: black;
+    width: 420px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.contenedor{
+    background-color: #DCC8C8;
+    padding: 20px;
+    border-radius: 12px;
+    max-height: 490px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.card-text {
+    padding: 0px 20px 0px 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.card img {
+    width: 100%;
+    display: block;
+}
+
+.card-user {
+    display: flex;
+    align-items: center;
+    gap:3px;
+    padding: 12px 16px;
+    font-size: 14px;
+}
+.profil { 
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-user img {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+}
+
+.user {
+    font-weight: bold;
+}
+
+.card-TopComment {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 16px;
+    font-size: 14px;
+    background: #00000046;
+    margin: 10px;
+    border-radius: 12px;
+}
+
+.card-comment {
+    display: flex;
+    align-items: center;
+    gap:3px;
+    font-size: 14px;
+}
+.card-comment img {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+}
+
+/* Leaderboard */
+.leaderboard {
+    background: #E7E2DE;
+    color: black;
+    width: 300px;
+    border-radius: 12px;
+    padding: 16px;
+    height: fit-content;
+}
+
+.leaderboard h2 {
+    margin-bottom: 12px;
+}
+
+.opciones{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aqua;
+    padding: 12px 16px;
+    border-radius: 12px;
+    gap: 12px;
+}
+
+/* Label */
+.opciones label{
+    font-weight: 600;
+    color: #004f4f;
+}
+
+/* Wrapper para la flecha */
+.select-wrapper{
+    position: relative;
+}
+
+/* Select base */
+.select-wrapper select{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 36px 8px 14px;
+
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.25s ease;
+}
+
+/* Flecha custom */
+.select-wrapper::after{
+    content: "▾";
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 14px;
+    color: #009999;
+}
+
+/* Hover */
+.select-wrapper select:hover{
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    transform: translateY(-1px);
+}
+
+/* Focus */
+.select-wrapper select:focus{
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,153,153,0.4);
+}
+
