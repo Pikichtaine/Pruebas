@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoFormation Blog</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- Top Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">AutoFormation</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Solicode.co</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<!-- Categories Bar -->
+<section class="categories">
+    <div class="categories-scroll">
+        <button class="category-chip active">All</button>
+        <button class="category-chip">Updates</button>
+        <button class="category-chip">Tutorial</button>
+        <button class="category-chip">Education</button>
+        <button class="category-chip">Design</button>
+        <button class="category-chip">Coding</button>
+        <button class="category-chip">AI</button>
+        <button class="category-chip">Productivity</button>
+        <button class="category-chip">Soft Skills</button>
+        <button class="category-chip">Projects</button>
+        <button class="category-chip">Tips</button>
+    </div>
+</section>
+
+    <div class="container layout">
+        <!-- Main Content (Blog Feed) -->
+        <main class="main-content">
+            
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Education" class="card-img">
+                <div class="card-content">
+                    <span class="tag">Éducation</span>
+                    <h2 class="card-title">Comment structurer votre premier parcours d'autoformation</h2>
+                    <p class="card-desc">Découvrez notre méthode pas-à-pas pour organiser vos chapitres, fixer des objectifs clairs et rester motivé tout au long de votre apprentissage en autonomie.</p>
+                    <a href="#" class="btn-read-more">Lire l'article</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fitness" class="card-img">
+                <div class="card-content">
+                    <span class="tag">Fitness</span>
+                    <h2 class="card-title">Programmer sa routine sportive avec le système de chapitres</h2>
+                    <p class="card-desc">Utilisez l'outil AutoFormation pour créer une progression logique dans votre entraînement physique, de l'échauffement jusqu'à la maîtrise des mouvements complexes.</p>
+                    <a href="#" class="btn-read-more">Lire l'article</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Personal Development" class="card-img">
+                <div class="card-content">
+                    <span class="tag">Développement Personnel</span>
+                    <h2 class="card-title">Nouvelle mise à jour : Le suivi de progression visuel</h2>
+                    <p class="card-desc">Nous venons de déployer une nouvelle fonctionnalité permettant de visualiser votre avancement dans vos parcours personnels via des graphiques interactifs.</p>
+                    <a href="#" class="btn-read-more">Lire l'article</a>
+                </div>
+            </article>
+
+        </main>
+
+        <!-- Sidebar Widgets -->
+        <aside class="sidebar">
+            
+            <div class="widget">
+                <h3 class="widget-title">Recherche</h3>
+                <form class="search-box">
+                    <input type="text" placeholder="Rechercher un article...">
+                    <button type="submit">Go</button>
+                </form>
+            </div>
+
+
+
+            <div class="widget">
+                <h3 class="widget-title">Articles Récents</h3>
+                
+                <div class="recent-post">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Notebook">
+                    <div>
+                        <h4><a href="#">5 astuces pour garder le rythme d'apprentissage</a></h4>
+                        <span>Il y a 2 jours</span>
+                    </div>
+                </div>
+
+                <div class="recent-post">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Students">
+                    <div>
+                        <h4><a href="#">La communauté AutoFormation dépasse les 10k membres !</a></h4>
+                        <span>Il y a 1 semaine</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="widget widget-newsletter">
+                <h3 class="widget-title">Newsletter</h3>
+                <p>Recevez nos derniers conseils et mises à jour directement dans votre boîte mail.</p>
+                <form>
+                    <input type="email" placeholder="Votre adresse email" required>
+                    <button type="submit">S'abonner</button>
+                </form>
+            </div>
+
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Mentions légales</a>
+                <a href="#">Politique de confidentialité</a>
+                <a href="#">Conditions d'utilisation</a>
+            </div>
+            <p>&copy; 2026 AutoFormation. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
