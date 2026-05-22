@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maze Game</title>
+  <link rel="stylesheet" href="Maze.css"/>
+</head>
+<body>
+
+  <div class="game-container">
+
+    <!-- PANEL IZQUIERDO -->
+    <div class="side-panel">
+      <button id="generateBtn" class="circle-btn plus">
+        +
+      </button>
+    </div>
+
+    <!-- LABERINTO -->
+    <div id="maze">
+
+      <!-- CAMINO -->
+      <div id="path"></div>
+
+      <!-- CURSOR PLAYER -->
+      <div id="player"></div>
+
+    </div>
+
+    <!-- PANEL DERECHO -->
+    <div class="side-panel">
+      <button id="finishBtn" class="circle-btn minus">
+        -
+      </button>
+    </div>
+
+  </div>
+
+  <script src="Maze.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+/* style.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  background:
+    radial-gradient(circle at top, #1f6fff 0%, #071a3d 45%, #020814 100%);
+}
+
+/* Glow ambiental */
+.background-glow {
+  position: absolute;
+
+  width: 700px;
+  height: 700px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 183, 255, 0.22) 0%,
+      rgba(0, 183, 255, 0.04) 45%,
+      transparent 75%
+    );
+
+  filter: blur(60px);
+}
+
+/* BOTON */
+.cyber-button {
+  position: relative;
+
+  width: 420px;
+  height: 170px;
+
+  border: 2px solid rgba(0, 217, 255, 0.7);
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 183, 255, 0.25),
+      rgba(0, 51, 102, 0.9)
+    );
+
+  color: white;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.4s ease;
+    
+  box-shadow:
+    0 0 20px rgba(0, 183, 255, 0.35),
+    inset 0 0 30px rgba(0, 183, 255, 0.12);
+}
+
+/* Shine */
+.cyber-button::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent 20%,
+      rgba(255,255,255,0.15) 50%,
+      transparent 80%
+    );
+
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+}
+
+.cyber-button:hover::before {
+  transform: translateX(120%);
+}
+
+.cyber-button:hover {
+  transform: scale(1.04);
+
+  box-shadow:
+    0 0 35px rgba(0, 217, 255, 0.8),
+    0 0 80px rgba(0, 140, 255, 0.35);
+}
+
+.cyber-button span {
+  font-size: 5rem;
+  font-weight: 900;
+
+  text-shadow:
+    0 0 10px rgba(255,255,255,0.35),
+    0 0 25px rgba(0, 217, 255, 0.55);
+}
+
+/* HIDDEN */
+.hidden {
+  display: none;
+}
+
+/* COUNTDOWN */
+.countdown {
+  position: absolute;
+
+  font-size: 14rem;
+  font-weight: 900;
+
+  color: white;
+
+  text-shadow:
+    0 0 20px rgba(255,255,255,0.4),
+    0 0 50px rgba(0, 217, 255, 0.9),
+    0 0 120px rgba(0, 140, 255, 0.5);
+
+  animation: zoomFade 1s ease forwards;
+}
+
+/* ANIMACION */
+@keyframes zoomFade {
+
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+  25% {
+    transform: scale(1.2);
+    opacity: 1;
+    filter: blur(0px);
+  }
+
+  70% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+    filter: blur(6px);
+  }
+}

@@ -1,0 +1,156 @@
+/* style.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  background:
+    radial-gradient(circle at top, #1f6fff 0%, #071a3d 45%, #020814 100%);
+}
+
+/* CONTENEDOR */
+.game-container {
+  display: flex;
+
+  width: 1200px;
+  height: 520px;
+
+  border: 10px solid black;
+
+  background: #111;
+
+  box-shadow:
+    0 0 40px rgba(0, 183, 255, 0.35);
+}
+
+/* PANELES */
+.side-panel {
+  width: 220px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background:
+    linear-gradient(
+      180deg,
+      #d8d8d8,
+      #b8b8b8
+    );
+}
+
+/* BOTONES */
+.circle-btn {
+  width: 100px;
+  height: 100px;
+
+  border: none;
+  border-radius: 50%;
+
+  font-size: 5rem;
+  font-weight: bold;
+
+  color: white;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.circle-btn:hover {
+  transform: scale(1.08);
+}
+
+.plus {
+  background:
+    radial-gradient(circle, #ff5c5c, #ff2222);
+
+  box-shadow:
+    0 0 30px rgba(255, 0, 0, 0.5);
+}
+
+.minus {
+  background:
+    radial-gradient(circle, #a46cff, #7b2fff);
+
+  box-shadow:
+    0 0 30px rgba(138, 43, 226, 0.5);
+}
+
+/* ZONA DEL LABERINTO */
+#maze {
+  position: relative;
+
+  flex: 1;
+
+  overflow: hidden;
+
+  background: #ff2d2d;
+}
+
+/* CAMINO */
+#path {
+  position: absolute;
+  inset: 0;
+}
+
+/* SEGMENTOS */
+.segment {
+  position: absolute;
+  background: #ececec;
+
+  box-shadow:
+    0 0 10px rgba(255,255,255,0.4);
+}
+
+/* PLAYER */
+#player {
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  background: cyan;
+
+  box-shadow:
+    0 0 15px cyan,
+    0 0 40px cyan;
+
+  z-index: 999;
+
+  pointer-events: none;
+
+  transition: transform 0.03s linear;
+}
+
+/* GAME OVER */
+.flash {
+  animation: flashRed 0.4s;
+}
+
+@keyframes flashRed {
+  0% {
+    background: #ff0000;
+  }
+
+  100% {
+    background: #ff2d2d;
+  }
+}

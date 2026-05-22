@@ -1,0 +1,289 @@
+/* style.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  background:
+    radial-gradient(circle at top, #1f6fff 0%, #071a3d 45%, #020814 100%);
+}
+
+/* GLOW FONDO */
+.background-glow {
+  position: absolute;
+
+  width: 800px;
+  height: 800px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 183, 255, 0.15) 0%,
+      transparent 70%
+    );
+
+  filter: blur(60px);
+}
+
+/* PANEL */
+.panel {
+  position: relative;
+
+  width: 1100px;
+  height: 550px;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  border: 3px solid rgba(0,255,255,0.25);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20,20,30,0.95),
+      rgba(5,5,15,0.98)
+    );
+
+  box-shadow:
+    0 0 40px rgba(0,183,255,0.2),
+    inset 0 0 30px rgba(0,183,255,0.05);
+}
+
+/* TAPA */
+.cover {
+  position: absolute;
+  inset: 0;
+
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(25,25,35,0.98),
+      rgba(8,8,18,0.98)
+    );
+
+  transition:
+    transform 0.8s cubic-bezier(.77,0,.18,1),
+    opacity 0.8s ease;
+}
+
+/* EFECTO REJILLA */
+.cover-lines {
+  position: absolute;
+  inset: 0;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.05) 0px,
+      rgba(255,255,255,0.05) 2px,
+      transparent 2px,
+      transparent 18px
+    );
+
+  opacity: 0.4;
+}
+
+.cover-text {
+  position: relative;
+
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 6px;
+
+  color: white;
+
+  text-shadow:
+    0 0 15px rgba(0,255,255,0.5);
+}
+
+.cover-sub {
+  position: relative;
+
+  margin-top: 20px;
+
+  font-size: 1rem;
+  letter-spacing: 4px;
+
+  color: rgba(255,255,255,0.6);
+}
+
+.cover.open {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* TABLERO */
+.board {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 60px;
+}
+
+/* LADOS */
+.side {
+  width: 280px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* CABLE */
+.wire {
+  position: relative;
+
+  height: 55px;
+  width: 180px;
+
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.6rem;
+  font-weight: bold;
+
+  color: white;
+
+  cursor: pointer;
+
+  overflow: visible;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  box-shadow:
+    0 0 20px rgba(255,255,255,0.15);
+}
+
+.wire:hover {
+  transform: scale(1.05);
+}
+
+/* EFECTO CABLE */
+.wire::before {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+
+  width: 120px;
+  height: 10px;
+
+  background: inherit;
+
+  transform: translateY(-50%);
+}
+
+/* EFECTO CABLE */
+
+.left-wire::before,
+.right-wire::before {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+
+  height: 12px;
+
+  background: inherit;
+
+  transform: translateY(-50%);
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 0 10px rgba(255,255,255,0.2);
+}
+
+/* IZQUIERDA */
+.left-wire::before {
+  left: 100%;
+  width: 260px;
+}
+
+/* DERECHA */
+.right-wire::before {
+  right: 100%;
+  width: 260px;
+}
+
+/* GLOW CENTRAL */
+.middle-glow {
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0,255,255,0.18),
+      transparent 70%
+    );
+
+  filter: blur(40px);
+}
+
+/* HIDDEN */
+.hidden {
+  opacity: 0;
+}
+
+/* ANIMACION ERROR */
+.shake {
+  animation: shake 0.35s;
+}
+
+@keyframes shake {
+
+  0% { transform: translateX(0px); }
+  25% { transform: translateX(-8px); }
+  50% { transform: translateX(8px); }
+  75% { transform: translateX(-8px); }
+  100% { transform: translateX(0px); }
+
+}

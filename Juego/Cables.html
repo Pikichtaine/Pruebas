@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wire Puzzle</title>
+
+  <link rel="stylesheet" href="Cables.css" />
+</head>
+<body>
+
+  <!-- FONDO -->
+  <div class="background-glow"></div>
+
+  <!-- PANEL -->
+  <div class="panel">
+
+    <!-- TAPA / REJILLA -->
+    <div class="cover" id="cover">
+      <div class="cover-lines"></div>
+
+      <div class="cover-text">
+        ELECTRICAL SYSTEM
+      </div>
+
+      <div class="cover-sub">
+        CLICK TO OPEN
+      </div>
+    </div>
+
+    <!-- INTERIOR -->
+    <div class="board hidden" id="board">
+
+      <!-- LADO IZQUIERDO -->
+      <div class="side" id="left"></div>
+
+      <!-- CENTRO -->
+      <div class="middle-glow"></div>
+
+      <!-- LADO DERECHO -->
+      <div class="side" id="right"></div>
+
+    </div>
+
+  </div>
+
+  <script src="Cables.js"></script>
+</body>
+</html>
